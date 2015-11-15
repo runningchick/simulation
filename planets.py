@@ -26,7 +26,7 @@ def updateState(state):
     elif (state[1] > 200 and state[0] == 300):
         state[2] = 0
         state[3] = -1
-    else:
+    else: 
         state[2] = -1
         state[3] = 0
     return(state[0]+state[2], state[1]+state[3], state[2], state[3])
@@ -41,7 +41,7 @@ def handleEvent(state, event):
     print(event)
     return(state)
     
-initState = (200, 200, 0, 1)
+initState = [200, 200, 0, 0]
 
 frameRate = 60
 
