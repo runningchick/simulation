@@ -29,7 +29,7 @@ def updateState(state):
     else: 
         state[2] = -1
         state[3] = 0
-    return(state[0]+state[2], state[1]+state[3], state[2], state[3])
+    return((state[0]+state[2], state[1]+state[3], state[2], state[3]))
 
 def endState(state):
     if (state[0] > width):
@@ -41,7 +41,7 @@ def handleEvent(state, event):
     print(event)
     return(state)
     
-initState = [200, 200, 0, 0]
+initState = [200, 200, 0, 1]
 
 frameRate = 60
 
