@@ -17,22 +17,22 @@ def updateDisplay(state):
     dw.draw(earth, (state[0], state[1]))
 
 def updateState(state):
-    if (state[1] < 300 and state[0] == 200):
-        state[2] = 0
-        state[3] = 1
-    elif (state[1] == 300 and state[0] < 300):
-        state[2] = 1
-        state[3] = 0
-    elif (state[1] > 200 and state[0] == 300):
-        state[2] = 0
-        state[3] = -1
+    if (200 <= state[1] < 300 and state[0] == 200):
+        y_down_velocity = 1
+        location = (state[0]+state[2], state[1]+y_down_velocity, state[2], state[3])
+    elif (state[1] == 300 and 200 <= state[0] < 300):
+        x_right_velocity = 1
+        location = (state[0]+x_right_velocity, state[1]+state[3], state[2], state[3])
+    elif (200 < state[1] <= 300 and state[0] == 300):
+        y_up_velocity = -1
+        location = (state[0]+state[2], state[1]+y_up_velocity, state[2], state[3])
     else: 
-        state[2] = -1
-        state[3] = 0
-    return((state[0]+state[2], state[1]+state[3], state[2], state[3]))
+       x_left_velocity = -1
+       location = (state[0]+x_left_velocity, state[1]+state[3], state[2], state[3])
+    return location
 
 def endState(state):
-    if (state[0] > width):
+    if (state[0] == 1000 and state[1] == 1000):
         return True
     else:
         return False
@@ -41,7 +41,7 @@ def handleEvent(state, event):
     print(event)
     return(state)
     
-initState = [200, 200, 0, 1]
+initState = [200, 200, 0, 0]
 
 frameRate = 60
 
