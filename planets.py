@@ -46,6 +46,9 @@ def endState(state):
 
 def handleEvent(state, event):
     if(event.type == pg.KEYDOWN):
+        if event.type == pg.QUIT:
+            pg.quit()
+            quit()
         if(event.key == pg.K_LEFT):
             x_velocity = -2
             y_velocity = 0
