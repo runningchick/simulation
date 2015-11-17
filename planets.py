@@ -45,6 +45,9 @@ def endState(state):
         return False
 
 def handleEvent(state, event):
+    if event.type == pg.QUIT:
+        pg.quit()
+        quit()
     if(event.type == pg.KEYDOWN):
         if event.type == pg.QUIT:
             pg.quit()
