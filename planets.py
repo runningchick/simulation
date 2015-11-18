@@ -17,7 +17,7 @@ def loadImage(filename):
 sun = loadImage("sun2.jpeg")
 earth = loadImage("earth1.jpeg")
 comet = loadImage("comet.jpeg")
-impact = loadImage("impact.bmp")
+impact = loadImage("impact.jpg")
 
 def updateDisplay(state):
         dw.fill(dw.black)
@@ -41,7 +41,7 @@ def updateState(state):
     return location
 
 def endState(state):
-    if (state[0] == state[4]):
+    if ((state[0] <= state[4] <= (state[0]+70)) and (state[1] <= state[5] <= (state[1]+70)) ):
         dw.draw(impact,[0,0])
         pg.display.update()
         time.sleep(3)
