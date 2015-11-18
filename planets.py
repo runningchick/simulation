@@ -1,6 +1,7 @@
 import runWorld as rw
 import drawWorld as dw
 import pygame as pg
+import time
 from random import randint
 
 name = "Planets"
@@ -15,7 +16,8 @@ def loadImage(filename):
 
 sun = loadImage("sun2.jpeg")
 earth = loadImage("earth1.jpeg")
-comet = dw.loadImage("comet.jpeg")
+comet = loadImage("comet.jpeg")
+impact = loadImage("impact.bmp")
 
 def updateDisplay(state):
         dw.fill(dw.black)
@@ -40,6 +42,9 @@ def updateState(state):
 
 def endState(state):
     if (state[0] == state[4]):
+        dw.draw(impact,[0,0])
+        pg.display.update()
+        time.sleep(3)
         return True
     else:
         return False
