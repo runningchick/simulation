@@ -17,7 +17,7 @@ def loadImage(filename):
 sun = loadImage("sun2.jpeg")
 earth = loadImage("earth1.jpeg")
 comet = loadImage("comet.jpeg")
-impact = loadImage("impact.jpg")
+impact = dw.loadImage("impact.bmp")
 
 def updateDisplay(state):
         dw.fill(dw.black)
