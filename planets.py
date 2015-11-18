@@ -44,7 +44,13 @@ def endState(state):
     if ((state[0] <= state[4] <= (state[0]+70)) and (state[1] <= state[5] <= (state[1]+70)) ):
         dw.draw(impact,[0,0])
         pg.display.update()
-        time.sleep(3)
+        time.sleep(2)
+        font = pg.font.SysFont (None, 50)
+        end_text = font.render("By: Cody, Emma, Corey", True, dw.green)
+        dw.fill(dw.black)
+        dw.draw(end_text, [100, height/2])
+        pg.display.update()
+        time.sleep(2)
         return True
     else:
         return False
