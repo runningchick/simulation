@@ -20,10 +20,10 @@ comet = loadImage("comet.png")
 impact = dw.loadImage("impact.jpg")
 
 def updateDisplay(state):
-        dw.fill(dw.black)
-        dw.draw(sun, (200, 200))
-        dw.draw(earth, (state[0], state[1]))
-        dw.draw(comet, (state[4], state[5]))
+    dw.fill(dw.black)
+    dw.draw(sun, (200, 200))
+    dw.draw(earth, (state[0], state[1]))
+    dw.draw(comet, (state[4], state[5]))
 
 def updateState(state):
     if (50 <= state[1] < 350 and state[0] == 50):
