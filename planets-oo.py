@@ -4,9 +4,7 @@ import pygame as pg
 import time
 from random import randint
 
-## Class Declaration
-
-#initState = [50, 50, randint(0,499), randint(0,499), randint(-2,2), randint(-2,2)]
+# Game Set Up
 
 name = "Planets"
 width = 500
@@ -22,6 +20,10 @@ my_sun = loadImage("sun2.jpeg")
 my_earth = loadImage("earth1.jpeg")
 my_comet = loadImage("comet.png")
 my_impact = dw.loadImage("impact.jpg")
+
+############################################################################3
+
+# Class Declaration
 
 class State:
     _sun = None
@@ -42,14 +44,19 @@ class State:
     def __init__(self,sun,earth,comet,impact):
         self.setImage(sun,earth,comet,impact)
 
+# Initial State
+
 ooInitState = State(my_sun,my_earth,my_comet,my_impact)
+
+############################################################################
 
 def updateDisplay(state):
     dw.fill(dw.black)
     dw.draw(state._sun, (200, 200))
     dw.draw(state._earth, (state.earth_x, state.earth_y))
     dw.draw(state._comet, (state.comet_x, state.comet_y))
-
+    ############################################################################
+    
 def updateState(state):
     if (50 <= state.earth_y < 350 and state.earth_x == 50):
         state.earth_y += 1
@@ -62,6 +69,7 @@ def updateState(state):
     state.comet_x += state.comet_x_velocity
     state.comet_y += state.comet_y_velocity
     return state
+############################################################################
 
 def endState(state):
     if ((state.earth_x <= state.comet_x <= (state.earth_x+70)) and (state.earth_y <= state.comet_y <= (state.earth_y+70))):
@@ -78,6 +86,8 @@ def endState(state):
     else:
         return False
 
+############################################################################
+    
 def handleEvent(state, event):
     if event.type == pg.QUIT:
         pg.quit()
@@ -99,6 +109,8 @@ def handleEvent(state, event):
             state.comet_x_velocity = 0
             state.comet_y_velocity = 2
     return state
+
+############################################################################
 
 frameRate = 60
 
